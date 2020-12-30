@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
 
   model = nvidia()
-  print(f"Summary of the model:\n{model1.summary()}")
+  print(f"Summary of the model:\n{model.summary()}")
 
   print("Training starts")
   history = model.fit_generator(TRAIN_DATA, steps_per_epoch=300, epochs=EPOCHS,
