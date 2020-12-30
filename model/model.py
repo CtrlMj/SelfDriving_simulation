@@ -1,3 +1,9 @@
+import keras
+from keras.models import Sequential
+from keras.layers import Dense
+from keras.layers import Convolution2D, MaxPooling2D, Dropout, Flatten
+from keras.optimizers import Adam
+
 def nvidia():
   model = Sequential()
   #subsample defines the strides of the kernel by which it traverses
