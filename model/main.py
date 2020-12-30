@@ -7,6 +7,7 @@ sys.path.append('SelfDriving_simulation/data')
 from SelfDriving_simulation.data import render_raw
 
 EPOCHS = 10
+lr = 0.005
 data_path = "SelfDriving/log.csv"
 test_size = 0.2
 n_bins = 25
@@ -21,7 +22,7 @@ if __name__ == "__main__":
   VALIDATION_DATA = batch_generator(X_test, y_test, batch_size=batch_size, train=0)
 
 
-  model = nvidia()
+  model = nvidia(lr, [0, 0, 0.3])
   print(f"Summary of the model:\n{model.summary()}")
   
   checkpoint = ModelCheckpoint(filepath, monitor='val_accuracy', verbose=1, save_best_only=True, mode='max')
