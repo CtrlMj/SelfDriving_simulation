@@ -12,6 +12,8 @@ test_size = 0.2
 n_bins = 25
 unbalance_thresh = 300
 batch_size = 100
+filepath="./cpath"
+
 
 if __name__ == "__main__":
   X_train, y_train, X_test, y_test = render_raw(path=data_path, testsize=test_size, n_bins=n_bins, threshold=unbalance_thresh)
@@ -21,11 +23,13 @@ if __name__ == "__main__":
 
   model = nvidia()
   print(f"Summary of the model:\n{model.summary()}")
-
+  
+  checkpoint = ModelCheckpoint(filepath, monitor='val_accuracy', verbose=1, save_best_only=True, mode='max')
+  callbacks_list = [checkpoint]
   print("Training starts")
   history = model.fit_generator(TRAIN_DATA, steps_per_epoch=300, epochs=EPOCHS,
                                 validation_data = VALIDATION_DATA, 
-                                validation_steps=200, verbose=1, shuffle=1)  
+                                validation_steps=200, verbose=1, callbacks=callbacks_list, shuffle=1)  
 
 
   print("Final loss plots for training and validation:")
