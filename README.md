@@ -4,4 +4,4 @@ Following these steps:
 
 1. Original simulator data will be acquired 
 2. A convolutional neural network is built using Keras and trained on the data
-3. The trained model is used in a server to command the simulator real-time
+3. The trained model is used in a flask server to command the simulator real-time
