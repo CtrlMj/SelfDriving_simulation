@@ -22,5 +22,5 @@ def nvidia():
   model.add(Dense(10,  activation='elu'))
   model.add(Dropout(0.3))
   model.add(Dense(1))
-  model.compile(optimizer=Adam(0.005), loss='mse')
+  model.compile(optimizer=Adam(0.005), loss='mse', metrics=['accuracy'])
   return model
